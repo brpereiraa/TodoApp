@@ -1,6 +1,6 @@
 # Todo App
 
-Small React project made to further understand and mess with new technologies.
+This is a React project made to further understand new technologies, mostly Tailwind and Typescript. Also worked with Json storage and local browser storage to keep the data stored, and Docker for another way to build the app. 
 
 ## Running the app
 You can either run this app with docker or node. Whichever way you choose, simply run localhost:3000 afterwards to preview the project.
