@@ -7,6 +7,8 @@ You can either run this app with docker or node.
 
 ### 1.Running with node
 ```
+npm install
+
 npm start
 ```
 
