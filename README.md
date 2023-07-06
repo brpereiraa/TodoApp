@@ -18,7 +18,7 @@ docker compose up
 ```
 
 ---
-## Technologies used:
+### Technologies used:
 
 <div style="display:flex; justify-content:center">
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" height="50"/>
