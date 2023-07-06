@@ -1,6 +1,6 @@
 # Todo App
 
-Small ReactJS project made to further understand and mess with new technologies.
+Small React project made to further understand and mess with new technologies.
 
 ## Running the app
 You can either run this app with docker or node. Whichever way you choose, simply run localhost:3000 afterwards to preview the project.
