@@ -2,6 +2,7 @@ import "./style.css";
 import {Todo} from "../components/todo";
 import jsonData from "../data.json";
 import React, { useState, useEffect } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 export const Index = (props:any) => {
   const [data, setData] = useState<any[]>([]);
@@ -12,24 +13,24 @@ export const Index = (props:any) => {
     if(!value) return;
     addData();
     setValue("");
-    console.log()
   }
 
   const addData = () => {
-    const object = { id: data.length + 1, name: value };
+    const object = { id: uuidv4(), name: value };
     const newData = [...data, object];
-
     setData(newData);
   }
+
+  const deleteData = (id: number) => {
+    const updatedData = data.filter((item) => item.id !== id);
+    setData(updatedData);
+  };
   
   useEffect(() => {
-    // Check if data exists in local storage
     const storedData = localStorage.getItem("myData");
-    console.log(storedData);
     if (storedData && storedData !== "[]") {
       setData(JSON.parse(storedData));
     } else {
-      // Set initial data from JSON file
       setData(jsonData);
     }
   }, []);
@@ -40,7 +41,7 @@ export const Index = (props:any) => {
 
   return (
     <div className="h-screen w-screen bg-gradient-to-r from-gray-800 to-gray-700">
-      <h1 className="text-5xl font-bold text-center pt-12 bg-gradient-to-r from-gray-100 to-blue-300 bg-clip-text text-transparent w-2/4 m-auto">
+      <h1 className="text-5xl font-bold text-center pt-12 bg-gradient-to-r from-emerald-400 to-sky-300 bg-clip-text text-transparent w-2/4 m-auto">
         To Do App
       </h1>
       <div className="w-3/4 m-auto mt-8 rounded">
@@ -56,7 +57,7 @@ export const Index = (props:any) => {
       </div>
       <div className="pt-10 w-3/4 m-auto border-solid border-white">
         {data.map((info:any) => (
-          <Todo name={info.name}/>
+          <Todo name={info.name} id={info.id} key={info.id} delete={deleteData}/>
         ))}
       </div>
     </div>
