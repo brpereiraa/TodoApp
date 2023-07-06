@@ -13,11 +13,20 @@ npm start
 ```
 
 ### 2.Running with docker
-```
-docker compose build
 
-docker compose up
+To build the container and run it you can use the following commands:
 ```
+docker build -t todo .
+
+docker run -dp 127.0.0.1:3000:3000 todo
+```
+Once you are finished and want to stop the container, look for the id of your container and stop it.
+```
+docker ps
+
+docker stop <container_id>
+```
+
 
 ---
 ### Technologies used:
